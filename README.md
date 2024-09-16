@@ -36,6 +36,4 @@ This project allows users to interact with datasets by asking **natural language
 ---
 
 **Contributions**:
-Feel free
-
- to contribute by opening issues or creating pull requests!
+Feel free to contribute by opening issues or creating pull requests!

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Data Analytics Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered Data Analytics Assistant</h1>
+        
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload a CSV file for data analysis:</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">Upload CSV</button>
+        </form>
+        
+        {% if message %}
+        <div class="result">
+            <h2>{{ message }}</h2>
+        </div>
+        {% endif %}
+        
+        <form action="/query" method="POST">
+            <label for="question">Ask a data-related question:</label>
+            <input type="text" name="question" id="question" required>
+            <button type="submit">Submit Query</button>
+        </form>
+
+        {% if query %}
+        <div class="result">
+            <h2>Query: {{ query }}</h2>
+            <h2>Results:</h2>
+            <div>{{ result | safe }}</div>
+            {% if plot_url %}
+            <h2>Visualization:</h2>
+            <img src="{{ plot_url }}" alt="Generated Plot">
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
